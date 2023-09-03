@@ -50,19 +50,16 @@ public class TailInjectionPointSelector extends InjectionPointSelector implement
         return false;
     }
 
-    @Override
     @NotNull
     public String getFullyQualifiedName() {
         return this.fullyQualifiedName;
     }
 
-    @Override
     @NotNull
     public Set<String> getAllNames() {
         return this.allNames;
     }
 
-    @Override
     @NotNull
     public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
         if (constraint != null) {

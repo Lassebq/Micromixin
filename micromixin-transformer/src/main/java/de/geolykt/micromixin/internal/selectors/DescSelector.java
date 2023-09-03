@@ -25,7 +25,6 @@ public class DescSelector implements MixinTargetSelector, InjectionPointTargetCo
         this.desc = desc;
     }
 
-    @Override
     @Nullable
     public MethodNode selectMethod(@NotNull ClassNode within, @NotNull MixinStub source) {
         if (this.desc.target.desc.codePointAt(0) != '(' || !(this.desc.target.owner.equals(within.name) || this.desc.target.owner.equals(source.sourceNode.name))) {
@@ -45,7 +44,6 @@ public class DescSelector implements MixinTargetSelector, InjectionPointTargetCo
         return "DescSelector[desc = " + this.desc + "]";
     }
 
-    @Override
     public boolean isValid(@NotNull AbstractInsnNode insn, @NotNull SimpleRemapper remapper, @NotNull StringBuilder sharedBuilder) {
         MemberDesc target = this.desc.target.remap(remapper, sharedBuilder);
         if (insn instanceof MethodInsnNode) {

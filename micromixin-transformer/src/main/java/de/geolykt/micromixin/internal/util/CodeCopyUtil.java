@@ -267,7 +267,6 @@ public class CodeCopyUtil {
         StringBuilder sharedBuilder = new StringBuilder();
         LabelNode endLabel = new LabelNode();
         LabelNodeMapper labelMapper = new LabelNodeMapper() {
-            @Override
             @NotNull
             public LabelNode apply(LabelNode label) {
                 LabelNode l = labelMap.get(label);

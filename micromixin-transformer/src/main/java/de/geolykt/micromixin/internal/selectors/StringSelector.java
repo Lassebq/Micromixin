@@ -49,7 +49,6 @@ public class StringSelector implements MixinTargetSelector, InjectionPointTarget
         }
     }
 
-    @Override
     @Nullable
     public MethodNode selectMethod(@NotNull ClassNode within, @NotNull MixinStub source) {
         for (MethodNode method : within.methods) {
@@ -72,7 +71,6 @@ public class StringSelector implements MixinTargetSelector, InjectionPointTarget
         return "StringSelector[owner = " + this.owner + ", name = " + name + ", desc = " + desc + "]";
     }
 
-    @Override
     public boolean isValid(@NotNull AbstractInsnNode insn, @NotNull SimpleRemapper remapper, @NotNull StringBuilder sharedBuilder) {
         // My IDE is bullying me
         String name = this.name;

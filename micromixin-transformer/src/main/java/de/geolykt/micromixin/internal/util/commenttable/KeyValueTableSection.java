@@ -23,12 +23,10 @@ public class KeyValueTableSection implements CommentTableSection {
         return this;
     }
 
-    @Override
     public int getPreferedWidth() {
         return keyLength + valueLength + 3;
     }
 
-    @Override
     @NotNull
     public List<String> getLines() {
         StringBuilder builder = new StringBuilder(this.getPreferedWidth());

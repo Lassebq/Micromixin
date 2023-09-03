@@ -72,31 +72,17 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>6</release>
+                    <source>5</source>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>compile-java-6</id>
+                        <id>compile-java-5</id>
                         <goals>
                             <goal>compile</goal>
                         </goals>
                         <configuration>
-                            <source>1.6</source>
-                            <target>1.6</target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>compile-java-9</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <release>9</release>
-                            <compileSourceRoots>
-                                <compileSourceRoot>${project.basedir}/src/main/java9</compileSourceRoot>
-                            </compileSourceRoots>
-                            <multiReleaseOutput>true</multiReleaseOutput>
+                            <source>1.5</source>
+                            <target>1.5</target>
                         </configuration>
                     </execution>
                 </executions>

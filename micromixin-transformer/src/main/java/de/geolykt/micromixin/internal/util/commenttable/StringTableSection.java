@@ -22,12 +22,10 @@ public class StringTableSection implements CommentTableSection {
         this.maxWidth = maxWidth;
     }
 
-    @Override
     public int getPreferedWidth() {
         return this.maxWidth;
     }
 
-    @Override
     @NotNull
     public List<String> getLines() {
         return lines;

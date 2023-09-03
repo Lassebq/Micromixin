@@ -11,7 +11,6 @@ public class ReflectionClassWrapperProvider implements ClassWrapperProvider {
         this.loader = loader;
     }
 
-    @Override
     @Nullable
     public ClassWrapper provide(@NotNull String className, @NotNull ClassWrapperPool pool) {
         Class<?> clazz;

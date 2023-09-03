@@ -54,25 +54,21 @@ public class MixinFieldStub implements ClassMemberStub {
         return new MixinFieldStub(owner, field, Collections.unmodifiableCollection(annotations));
     }
 
-    @Override
     @NotNull
     public ClassNode getOwner() {
         return this.owner;
     }
 
-    @Override
     @NotNull
     public String getName() {
         return this.field.name;
     }
 
-    @Override
     @NotNull
     public String getDesc() {
         return this.field.desc;
     }
 
-    @Override
     public void applyTo(@NotNull ClassNode target, @NotNull HandlerContextHelper hctx, @NotNull MixinStub source,
             @NotNull SimpleRemapper remapper, @NotNull StringBuilder sharedBuilder) {
         for (MixinAnnotation<MixinFieldStub> a : this.annotations) {
@@ -80,7 +76,6 @@ public class MixinFieldStub implements ClassMemberStub {
         }
     }
 
-    @Override
     public void collectMappings(@NotNull ClassNode target, @NotNull HandlerContextHelper hctx,
             @NotNull MixinStub stub, @NotNull SimpleRemapper out,
             @NotNull StringBuilder sharedBuilder) {
@@ -89,7 +84,6 @@ public class MixinFieldStub implements ClassMemberStub {
         }
     }
 
-    @Override
     public int getAccess() {
         return this.field.access;
     }

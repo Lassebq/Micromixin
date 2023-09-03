@@ -10,7 +10,6 @@ public abstract class ASMClassWrapperProvider implements ClassWrapperProvider {
     @Nullable
     public abstract ClassNode getNode(@NotNull String name);
 
-    @Override
     @Nullable
     public ClassWrapper provide(@NotNull String name, @NotNull ClassWrapperPool pool) {
         ClassNode node = getNode(name);

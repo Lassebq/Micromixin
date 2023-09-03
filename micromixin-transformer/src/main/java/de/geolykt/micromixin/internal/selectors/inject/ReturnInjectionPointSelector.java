@@ -51,19 +51,16 @@ public class ReturnInjectionPointSelector extends InjectionPointSelector impleme
         return false;
     }
 
-    @Override
     @NotNull
     public String getFullyQualifiedName() {
         return this.fullyQualifiedName;
     }
 
-    @Override
     @NotNull
     public Set<String> getAllNames() {
         return this.allNames;
     }
 
-    @Override
     @NotNull
     public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
         if (constraint != null) {

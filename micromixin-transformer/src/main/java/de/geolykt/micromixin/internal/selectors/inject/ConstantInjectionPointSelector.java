@@ -27,19 +27,16 @@ public class ConstantInjectionPointSelector extends InjectionPointSelector {
 
     @NotNull
     public static final InjectionPointSelectorProvider PROVIDER = new InjectionPointSelectorProvider() {
-        @Override
         @NotNull
         public String getFullyQualifiedName() {
             return "org.spongepowered.asm.mixin.injection.points.BeforeConstant";
         }
 
-        @Override
         @NotNull
         public Set<String> getAllNames() {
             return ConstantInjectionPointSelector.ALL_NAMES;
         }
 
-        @Override
         @NotNull
         public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
             if (constraint != null) {

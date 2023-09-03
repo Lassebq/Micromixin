@@ -51,7 +51,6 @@ public class MixinStub implements Comparable<MixinStub> {
         return new MixinStub(node, MixinHeader.parse(node, defaultPriority), Collections.unmodifiableCollection(methods), Collections.unmodifiableCollection(fields));
     }
 
-    @Override
     public int compareTo(MixinStub o) {
         return this.header.priority - o.header.priority; // TODO is this correct?
     }

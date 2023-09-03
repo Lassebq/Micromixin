@@ -76,25 +76,21 @@ public class MixinMethodStub implements ClassMemberStub {
         }
     }
 
-    @Override
     @NotNull
     public ClassNode getOwner() {
         return this.owner;
     }
 
-    @Override
     @NotNull
     public String getName() {
         return this.method.name;
     }
 
-    @Override
     @NotNull
     public String getDesc() {
         return this.method.desc;
     }
 
-    @Override
     public void collectMappings(@NotNull ClassNode target, @NotNull HandlerContextHelper hctx,
             @NotNull MixinStub stub, @NotNull SimpleRemapper out,
             @NotNull StringBuilder sharedBuilder) {
@@ -103,7 +99,6 @@ public class MixinMethodStub implements ClassMemberStub {
         }
     }
 
-    @Override
     public int getAccess() {
         return this.method.access;
     }

@@ -65,13 +65,11 @@ public class TabularTableSection implements CommentTableSection {
         return width;
     }
 
-    @Override
     @Contract(pure = true)
     public int getPreferedWidth() {
         return this.getPreferedWidth(this.getColumnWidths());
     }
 
-    @Override
     @NotNull
     @Contract(pure = true, value = "-> new")
     public List<String> getLines() {
