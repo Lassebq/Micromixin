@@ -6,5 +6,6 @@ import org.jetbrains.annotations.Nullable;
 public interface ClassWrapperProvider {
 
     // TODO request with modularity attachment
-    ClassWrapper provide(String name, ClassWrapperPool pool);
+    @Nullable
+    ClassWrapper provide(@NotNull String name, @NotNull ClassWrapperPool pool);
 }
