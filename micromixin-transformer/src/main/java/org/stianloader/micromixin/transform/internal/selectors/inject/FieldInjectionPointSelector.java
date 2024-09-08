@@ -39,23 +39,25 @@ public class FieldInjectionPointSelector extends InjectionPointSelector {
 
         @Override
         @NotNull
-        public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
+        public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint, int opcode) {
             if (constraint == null) {
                 throw new MixinParseException("Broken mixin: No descriptor or type discriminator found in @At(\"" + this.getFullyQualifiedName() + "\"). Usage of the 'target' or 'desc' constraints is required in the INVOKE injection point.");
             }
             if (args != null) {
                 throw new MixinParseException("Broken mixin: Superfluous discriminator found in @At(\"" + this.getFullyQualifiedName() + "\"). Usage of the 'args' constraints is not applicable to the " + this.getFullyQualifiedName() + " injection point.");
             }
-            return new FieldInjectionPointSelector(constraint);
+            return new FieldInjectionPointSelector(constraint, opcode);
         }
     };
 
     @NotNull
     private final InjectionPointTargetConstraint constraint;
+    private final int opcode;
 
-    private FieldInjectionPointSelector(@NotNull InjectionPointTargetConstraint constraint) {
+    private FieldInjectionPointSelector(@NotNull InjectionPointTargetConstraint constraint, int opcode) {
         super("org.spongepowered.asm.mixin.injection.points.BeforeFieldAccess", "FIELD");
         this.constraint = constraint;
+        this.opcode = opcode;
     }
 
     @Override
@@ -65,7 +67,8 @@ public class FieldInjectionPointSelector extends InjectionPointSelector {
         AbstractInsnNode guard = to == null ? method.instructions.getLast() : to.getFirstInsn(method, remapper, sharedBuilder);
 
         for (; insn != null; insn = insn.getNext()) {
-            if (insn instanceof FieldInsnNode && this.constraint.isValid(insn, remapper, sharedBuilder)) {
+            if (insn instanceof FieldInsnNode && this.constraint.isValid(insn, remapper, sharedBuilder)
+                    && (opcode == -1 || insn.getOpcode() == opcode)) {
                 return insn;
             }
             if(insn == guard) {

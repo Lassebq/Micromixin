@@ -99,7 +99,7 @@ public class LoadInjectionPointSelector extends InjectionPointSelector implement
 
     @Override
     @NotNull
-    public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
+    public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint, int opcode) {
         if (constraint != null) {
             throw new MixinParseException("Broken mixin: Superfluous discriminator found in @At(\"" + this.getFullyQualifiedName() + "\"). Usage of the 'target' or 'desc' constraints is not applicable to the " + this.getFullyQualifiedName() + " injection point.");
         }

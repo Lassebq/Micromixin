@@ -39,7 +39,7 @@ public class InvokeInjectionPointSelector extends InjectionPointSelector {
 
         @Override
         @NotNull
-        public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint) {
+        public InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint, int opcode) {
             if (constraint == null) {
                 throw new MixinParseException("Broken mixin: No descriptor or type discriminator found in @At(\"" + this.getFullyQualifiedName() + "\"). Usage of the 'target' or 'desc' constraints is required in the INVOKE injection point.");
             }

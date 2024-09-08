@@ -229,6 +229,7 @@ public class MixinAtAnnotation {
         List<String> args = null;
         InjectionPointTargetConstraint constraint = null;
         int shift = 0;
+        int opcode = -1;
 
         for (int i = 0; i < atValue.values.size(); i += 2) {
             String name = (String) atValue.values.get(i);
@@ -259,6 +260,8 @@ public class MixinAtAnnotation {
                 } else {
                     throw new MixinParseException("Unimplemented enum value for @At.shift: " + Arrays.toString(enumValue));
                 }
+            } else if (name.equals("opcode")) {
+                opcode = (Integer) val;
             } else {
                 throw new MixinParseException("Unimplemented key in @At: " + name);
             }
@@ -268,7 +271,7 @@ public class MixinAtAnnotation {
         }
 
         // TODO implement unsafe
-        return new MixinAtAnnotation(value, factory.get(value).create(args, constraint), slice, shift, false);
+        return new MixinAtAnnotation(value, factory.get(value).create(args, constraint, opcode), slice, shift, false);
     }
 
     @NotNull

@@ -20,7 +20,7 @@ public class InjectionPointSelectorFactory {
         Set<String> getAllNames();
 
         @NotNull
-        InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint);
+        InjectionPointSelector create(@Nullable List<String> args, @Nullable InjectionPointTargetConstraint constraint, int opcode);
     }
 
     @NotNull
